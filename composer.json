@@ -16,7 +16,10 @@
         "issues": "https://github.com/resknow/form/issues?state=open"
     },
     "require": {
-        "resknow/boilerplate": "^4.0.0"
+        "resknow/boilerplate": "^4.0.0",
+        "wixel/gump": "1.5.7",
+        "phpmailer/phpmailer": "6.0",
+        "catfan/medoo": "1.4"
     },
     "autoload": {
         "psr-4": {
