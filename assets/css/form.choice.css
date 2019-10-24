@@ -1,0 +1,12 @@
+[data-form] .field-type-choices__button {
+    background-color: #e6eaf4;
+    cursor: pointer;
+    display: inline-block;
+    padding: 8px 18px;
+}
+
+[data-form] .field-type-choices__button:hover,
+[data-form] .field-type-choices__button.is-selected {
+    background-color: #4b4f58;
+    color: white;
+}
