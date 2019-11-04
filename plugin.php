@@ -5,13 +5,13 @@ use Form\JSON;
 
 /**
  * @subpackage Form
- * @version 2.0.1
- * @package Boilerplate (4.0.0-dev or higher)
+ * @version 2.1.0
+ * @package Boilerplate (4.0.0 or higher)
  * @author Chris Galbraith
  */
 
 // Set Minimum Boilerplate Version
-plugin_requires_version( 'form', '4.0.0-dev' );
+plugin_requires_version( 'form', '4.0.0' );
 
 // Make sure Dependencies are installed
 if ( !class_exists('\\GUMP') || !class_exists('\\Medoo\\Medoo') || !class_exists('\\PHPMailer\\PHPMailer\\PHPMailer') ) {

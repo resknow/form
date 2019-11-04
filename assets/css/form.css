@@ -81,19 +81,23 @@
     font-size: .9em;
 }
 
-[data-form] .field-group .field-group-items {
+[data-form] .field-group > .field-group-items {
     display: grid;
     grid-gap: 24px;
 }
 
-[data-form] .field-group.--has-2-fields .field-group-items {
+[data-form] .field-group--no-grid > .field-group-items {
+    display: block;
+}
+
+[data-form] .field-group.--has-2-fields > .field-group-items {
     grid-template-columns: repeat(2, 1fr);
 }
 
-[data-form] .field-group.--has-3-fields .field-group-items {
+[data-form] .field-group.--has-3-fields > .field-group-items {
     grid-template-columns: repeat(3, 1fr);
 }
 
-[data-form] .field-group.--has-4-fields .field-group-items {
+[data-form] .field-group.--has-4-fields > .field-group-items {
     grid-template-columns: repeat(4, 1fr);
 }

@@ -6,6 +6,7 @@ $_attr['type'] = $variables['type'];
 
 // Classes to add to each button
 $_classes = array('field-group');
+$_classes[] = ( isset($variables['grid']) && $variables['grid'] === false ? 'field-group--no-grid' : '' );
 $_classes = ( isset($variables['classes']) ? array_merge($_classes, explode(' ', $variables['classes'])) : $_classes );
 $_attr['classes'] = join( ' ', $_classes );
 
@@ -24,9 +25,11 @@ $condition_json = json_encode($condition, JSON_PRETTY_PRINT);
 ?>
 <div class="<?= $_attr['classes'] ?> --has-<?= $field_count ?>-fields <?php if ($condition): ?>--is-conditional<?php endif; ?>">
 
+    <?php if ($condition): ?>
     <script type="template/json" data-condition>
         <?= $condition_json ?>
     </script>
+    <?php endif; ?>
 
     <?php if ( $_html['show_label'] && $_html['label'] ): ?>
         <h3 class="field-<?= $_attr['type'] ?>-title"><?= $_html['label'] ?></h3>

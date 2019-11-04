@@ -24,7 +24,8 @@ add_filter( 'form.render.type', function( $type ) {
         'month',
         'week',
         'time',
-        'range'
+        'range',
+        'color'
     ];
 
     // If current type is one of these, render it as text
