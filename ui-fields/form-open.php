@@ -1,5 +1,5 @@
 <?php $action = get('site.forms.' . $variables['form_id'] . '.location', '/' . get('page.slug')); ?>
-<form action="<?= $action ?>" method="post" data-form>
+<form class="bpf" action="<?= $action ?>" method="post" data-form>
     <input type="hidden" name="bp-form-id" value="<?= $variables['form_id'] ?>">
     <?php if ( get('site.recaptcha') ): ?><input type="hidden" name="bp-form-recaptcha-response" id="recaptcha-response"><?php endif; ?>
 

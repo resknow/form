@@ -205,7 +205,7 @@ Allows you to include a template partial inside your form.
 #### Group field
 Allows you to group multiple fields in to a single row, uses CSS Grid by default but you can role your own styles if you need to.
 
-__Note:__ Only supports up to 4 fields at the moment.
+__Note:__ Grid layouts only support up to 4 fields at the moment.
 ```yaml
 
     # Content field
@@ -222,6 +222,7 @@ __Note:__ Only supports up to 4 fields at the moment.
         show_label: false # Whether to display the label above the field (defaults to true)
         classes: block pad-16 # Custom CSS classes to add to this field
         description: Something useful # Description to display under the field
+        grid: false # Display items as block
 
 ```
 

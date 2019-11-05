@@ -1,73 +1,73 @@
-[data-form] .form-alert {
+.bpf .form-alert {
     border-radius: 4px;
     background-color: #eee;
     color: #555;
     padding: 12px;
 }
 
-[data-form] .form-alert p {
+.bpf .form-alert p {
     line-height: 1.8;
     margin: 0;
 }
 
-[data-form] .form-alert.positive {
+.bpf .form-alert.positive {
     background-color: #cef5d0;
     color: #499c4d;
 }
 
-[data-form] .form-alert.positive p {
+.bpf .form-alert.positive p {
     color: #499c4d;
 }
 
-[data-form] .form-alert.negative {
+.bpf .form-alert.negative {
     background-color: #e4cfcf;
     color: #d14b4b;
 }
 
-[data-form] .form-alert.negative p {
+.bpf .form-alert.negative p {
     color: #d14b4b;
 }
 
-[data-form] .form-alert.warning {
+.bpf .form-alert.warning {
     background-color: #f7f5d8;
     color: #d1c90d;
 }
 
-[data-form] .form-alert.warning p {
+.bpf .form-alert.warning p {
     color: #d1c90d;
 }
 
-[data-form] .field-name-how {
+.bpf .field-name-how {
     position: absolute;
     top: 0;
     left: -90999px;
 }
 
-[data-form] p.form-error {
+.bpf p.form-error {
     color: #d14b4b;
     margin: 0;
     font-size: 14px;
     text-align: left;
 }
 
-[data-form] input,
-[data-form] textarea,
-[data-form] select {
+.bpf input,
+.bpf textarea,
+.bpf select {
     transition: border-color .5s;
 }
 
-[data-form] input.is-invalid,
-[data-form] textarea.is-invalid,
-[data-form] select.is-invalid {
+.bpf input.is-invalid,
+.bpf textarea.is-invalid,
+.bpf select.is-invalid {
     border-color: #d14b4b;
 }
 
-[data-form] button[type="submit"]:disabled {
+.bpf button[type="submit"]:disabled {
     cursor: not-allowed;
     opacity: .4;
 }
 
-[data-form] .field-marker {
+.bpf .field-marker {
     color: rgb(154, 159, 162);
     display: inline-block;
     font-size: 11px;
@@ -76,28 +76,28 @@
     text-transform: uppercase;
 }
 
-[data-form] .field-description {
+.bpf .field-description {
     color: #a4a4a8;
     font-size: .9em;
 }
 
-[data-form] .field-group > .field-group-items {
+.bpf .field-group > .field-group-items {
     display: grid;
-    grid-gap: 24px;
+    grid-column-gap: 24px;
 }
 
-[data-form] .field-group--no-grid > .field-group-items {
+.bpf .field-group--no-grid > .field-group-items {
     display: block;
 }
 
-[data-form] .field-group.--has-2-fields > .field-group-items {
-    grid-template-columns: repeat(2, 1fr);
+.bpf .field-group.--has-2-fields > .field-group-items {
+    grid-template-columns: repeat( 2, 1fr );
 }
 
-[data-form] .field-group.--has-3-fields > .field-group-items {
-    grid-template-columns: repeat(3, 1fr);
+.bpf .field-group.--has-3-fields > .field-group-items {
+    grid-template-columns: repeat( 3, 1fr );
 }
 
-[data-form] .field-group.--has-4-fields > .field-group-items {
-    grid-template-columns: repeat(4, 1fr);
+.bpf .field-group.--has-4-fields > .field-group-items {
+    grid-template-columns: repeat( 4, 1fr );
 }

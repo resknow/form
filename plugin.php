@@ -11,7 +11,7 @@ use Form\JSON;
  */
 
 // Set Minimum Boilerplate Version
-plugin_requires_version( 'form', '4.0.0' );
+plugin_requires_version( 'form', '4.0.0-dev' );
 
 // Make sure Dependencies are installed
 if ( !class_exists('\\GUMP') || !class_exists('\\Medoo\\Medoo') || !class_exists('\\PHPMailer\\PHPMailer\\PHPMailer') ) {
@@ -65,5 +65,8 @@ add_action( 'template.init', function() use ($_theme, $_path) {
     if ( !path_contains('validate') && path_contains('submit') || isset( $_POST['bp-form-id'] ) ) {
         require_once __DIR__ . '/inc/submit.php';
     }
+
+    // API
+    require_once __DIR__ . '/inc/api.php';
 
 } );
