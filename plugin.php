@@ -5,7 +5,7 @@ use Form\JSON;
 
 /**
  * @subpackage Form
- * @version 2.1.0
+ * @version 2.2.0
  * @package Boilerplate (4.0.0 or higher)
  * @author Chris Galbraith
  */
@@ -15,7 +15,7 @@ plugin_requires_version( 'form', '4.0.0-dev' );
 
 // Make sure Dependencies are installed
 if ( !class_exists('\\GUMP') || !class_exists('\\Medoo\\Medoo') || !class_exists('\\PHPMailer\\PHPMailer\\PHPMailer') ) {
-    throw new Exception('Run <code>composer require wixel/gump:1.5.7 phpmailer/phpmailer:6.0 catfan/medoo:1.4</code> in your terminal to finish setting up Form');
+    throw new Exception('Run `composer require wixel/gump:1.5.7 phpmailer/phpmailer:6.0 catfan/medoo:1.4` in your terminal to finish setting up Form');
 }
 
 // Add core filters
@@ -24,7 +24,7 @@ require_once __DIR__ . '/inc/filters.php';
 add_action( 'init', function() {
 
     if ( !get('site.email') ) {
-        throw new Exception( 'You must set the <code>email</code> field in your config for the Form plugin to function.' );
+        throw new Exception( 'You must set the "email" field in your config for the Form plugin to function.' );
     }
 
     // Filter: form.load
