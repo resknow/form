@@ -16,6 +16,20 @@ add_filter( 'form.load', function( $forms ) {
         }
     }
 
+    // Check all forms for required config
+    foreach ( $forms as $id => $form ) {
+        if ( $id === 'config' ) continue;
+
+        // Name
+        if ( !array_key_exists('name', $form) ) throw new Exception('Form "'. $id .'" must have a name.');
+
+        // Fields
+        foreach ( $form['fields'] as $key => $field ) {
+            if ( !array_key_exists('label', $field) ) throw new Exception('Form "'. $id .'" field "'. $key .'" must have a label.');
+            if ( !array_key_exists('type', $field) ) throw new Exception('Form "'. $id .'" field "'. $key .'" must have a type.');
+        }
+    }
+
     return $forms;
 
 } );
