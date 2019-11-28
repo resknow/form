@@ -61,9 +61,6 @@ class Plugin {
         if ( !path_contains('validate') && path_contains('submit') || isset( $_POST['bp-form-id'] ) ) {
             require_once $this->pluginDir . '/inc/submit.php';
         }
-    
-        // API
-        require_once $this->pluginDir . '/inc/api.php';
 
     }
 
