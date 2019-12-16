@@ -62,7 +62,7 @@ document.addEventListener('DOMContentLoaded', function() {
             }
 
             // Validate
-            fetch('/validate/', {
+            fetch(window.formValidateUrl || '/validate/', {
                 method: 'POST',
                 body: data,
                 cache: 'default'

@@ -90,14 +90,16 @@
     display: block;
 }
 
-.bpf .field-group.--has-2-fields > .field-group-items {
-    grid-template-columns: repeat( 2, 1fr );
-}
+@media (min-width: 640px) {
+    .bpf .field-group.--has-2-fields > .field-group-items {
+        grid-template-columns: repeat( 2, 1fr );
+    }
 
-.bpf .field-group.--has-3-fields > .field-group-items {
-    grid-template-columns: repeat( 3, 1fr );
-}
+    .bpf .field-group.--has-3-fields > .field-group-items {
+        grid-template-columns: repeat( 3, 1fr );
+    }
 
-.bpf .field-group.--has-4-fields > .field-group-items {
-    grid-template-columns: repeat( 4, 1fr );
+    .bpf .field-group.--has-4-fields > .field-group-items {
+        grid-template-columns: repeat( 4, 1fr );
+    }
 }

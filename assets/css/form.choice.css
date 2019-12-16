@@ -3,6 +3,7 @@
     cursor: pointer;
     display: inline-block;
     padding: 8px 18px;
+    margin-bottom: 4px;
 }
 
 [data-form] .field-type-choices__button:hover,
