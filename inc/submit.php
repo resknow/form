@@ -56,7 +56,7 @@ if ( !$_id || !$_form->form_exists($_id) ) {
         if ( get('site.recaptcha') ) {
 
             if ( !isset($_POST['bp-form-recaptcha-response']) || empty($_POST['bp-form-recaptcha-response']) ) {
-                set( 'form.alerts.recpatcha-error', array(
+                set( 'form.alerts.recaptcha-error', array(
                     'type'      => 'negative',
                     'message'   => 'Recaptcha response not found'
                 ) );
