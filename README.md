@@ -187,8 +187,28 @@ Provides a button based UI for small groups of choices
 
 ```
 
+#### WYSIWYG field
+```yaml
+
+    # Wysiwyg field
+    message: # This is the field key (HTML name attribute)
+
+        ### Required ###
+        label: Message # Label
+        type: wysiwyg # Input type
+
+        ### Optional ###
+        show_label: false # Whether to display the label above the field (defaults to true)
+        validate: required # Validation rules {see: https://github.com/Wixel/GUMP#available-validators}
+        filter: trim|sanitize_string # Filter rules {see: https://github.com/Wixel/GUMP#available-filters}
+        classes: block pad-16 # Custom CSS classes to add to this field
+        value: Chris # A default value
+        description: Something useful # Description to display under the field
+
+```
+
 #### Content field
-Allows you to include a template partial inside your form.
+Allows you to include custom content inside your form.
 __Note:__ Labels are never shown for this field type and values are not included in user input.
 ```yaml
 
@@ -203,9 +223,9 @@ __Note:__ Labels are never shown for this field type and values are not included
 ```
 
 #### Group field
-Allows you to group multiple fields in to a single row, uses CSS Grid by default but you can role your own styles if you need to.
+Allows you to group multiple fields, it uses CSS Grid by default but you can role your own styles if you need to.
 
-__Note:__ Grid layouts only support up to 4 fields at the moment.
+__Note:__ Grid layouts only support up to 4 fields in a row.
 ```yaml
 
     # Content field
@@ -240,8 +260,14 @@ The validator for this is `spam_filter`. Add this to your validation rules to ap
 
 Once you've created your form, to render it on your page, include the following where you'd like it to display:
 
+#### Twig
+```twig
+{{ render_form('my-form') }}
+```
+
+#### PHP
 ```php
-<?php echo render_form( 'my-form' ) ?>
+<?php echo render_form('my-form') ?>
 ```
 
 Switch out `my-form` for your actual form ID :)
