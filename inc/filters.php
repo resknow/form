@@ -28,10 +28,8 @@ add_filter( 'form.load', function( $forms ) {
             if ( !array_key_exists('label', $field) ) throw new Exception('Form "'. $id .'" field "'. $key .'" must have a label.');
             if ( !array_key_exists('type', $field) ) throw new Exception('Form "'. $id .'" field "'. $key .'" must have a type.');
         }
-    }
 
-    // Enable Honeypot field
-    foreach ( $forms as $id => $form ) {
+        // Enable Honeypot field
         if ( array_key_exists('honeypot', $form) && $form['honeypot'] !== false ) {
             $forms[$id]['fields']['how'] = [
                 'label'     => 'If you are a human, do not fill in this field.',

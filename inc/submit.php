@@ -86,9 +86,6 @@ if ( !$_id || !$_form->form_exists($_id) ) {
 
         }
 
-        // Filter: form.isSpam
-        $_is_spam = apply_filters( 'form.isSpam', $_is_spam );
-
         // If there are errors, set an alert
         if ( !$_valid ) {
 
