@@ -23,6 +23,8 @@ forms:
             text: Submit
             classes: button positive
 
+        honeypot: false # Set to true to add a honeypot to reduce spam submissions.
+
         fields:
             ...
  ```
@@ -187,18 +189,16 @@ Provides a button based UI for small groups of choices
 
 #### Content field
 Allows you to include a template partial inside your form.
+__Note:__ Labels are never shown for this field type and values are not included in user input.
 ```yaml
 
     # Content field
     notice: # This is the field key (HTML name attribute)
 
         ### Required ###
-        label: Country # Label
+        label: ReCaptcha Notice # Label
         type: content # Input type
-        partial: my-notice # Partial name (will load partials/my-notice.php) from your _templates folder
-
-        ### Optional ###
-        classes: block pad-16 # Custom CSS classes to add to this field
+        callback: my_callback_function # PHP function that renders your content
 
 ```
 
