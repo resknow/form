@@ -30,6 +30,17 @@ add_filter( 'form.load', function( $forms ) {
         }
     }
 
+    // Enable Honeypot field
+    foreach ( $forms as $id => $form ) {
+        if ( array_key_exists('honeypot', $form) && $form['honeypot'] !== false ) {
+            $forms[$id]['fields']['how'] = [
+                'label'     => 'If you are a human, do not fill in this field.',
+                'type'      => 'text',
+                'filter'    => 'trim|sanitize_string'
+            ];
+        }
+    }
+
     return $forms;
 
 } );

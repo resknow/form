@@ -16,7 +16,7 @@ $form = get('site.forms.' . $id);
     <p style="font-size: 18px;"><?php echo get('form.input.name') ?> sent a new message sent from your website.</p>
     <hr style="border: 1px solid #ddd">
     <p style="margin-top: 30px;">
-        <?php foreach ( get('form.input') as $key => $field ): ?>
+        <?php foreach ( get('form.input') as $key => $field ): if ( $key === 'how' ) continue; ?>
             <span style="display: inline-block; padding-top: 4px;"><strong><?php echo $form['fields'][$key]['label']; ?>: </strong><?php echo nl2br($field); ?></span><br>
         <?php endforeach; ?>
     </p>
