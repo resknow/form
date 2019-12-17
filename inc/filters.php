@@ -31,6 +31,10 @@ add_filter( 'form.load', function( $forms ) {
 
         // Enable Honeypot field
         if ( array_key_exists('honeypot', $form) && $form['honeypot'] !== false ) {
+            if ( array_key_exists('how', $form['fields']) ) {
+                throw new Exception('Form "'. $id .'" has a field with the key "how". This key is reserved for the Honeypot field.');
+            }
+            
             $forms[$id]['fields']['how'] = [
                 'label'     => 'If you are a human, do not fill in this field.',
                 'type'      => 'text',

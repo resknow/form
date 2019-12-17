@@ -28,6 +28,7 @@ forms:
         fields:
             ...
  ```
+ __Note:__ The `honeypot` feature creates a field with the key `how`, so avoid using that key for your own fields.
 
 ## Fields
 
