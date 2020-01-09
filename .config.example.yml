@@ -14,18 +14,11 @@ forms:
         # defined in your config with connection details
         db: true
 
-        # Should the form send an autoresponse?
-        # @REQUIRES email
-        autoresponder: true
-
         # Email recipient
         recipient: chris@resknow.co.uk
 
         # Email subject
         subject: New Message From Your Website
-
-        # Email autoresponse subject
-        subject_autoresponder: Thank you for contacting Web Design Croydon
 
         # The message shown on success
         # @NOTE Only shown if location is not set.
