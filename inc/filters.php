@@ -23,6 +23,9 @@ add_filter( 'form.load', function( $forms ) {
         // Name
         if ( !array_key_exists('name', $form) ) throw new Exception('Form "'. $id .'" must have a name.');
 
+        // Autoresponder Warning
+        if ( array_key_exists('autoresponder', $form) ) throw new Exception('Form "'. $id .'" has an Autoresponder set, this feature has been removed and will no longer work.');
+
         // Fields
         foreach ( $form['fields'] as $key => $field ) {
             if ( !array_key_exists('label', $field) ) throw new Exception('Form "'. $id .'" field "'. $key .'" must have a label.');
