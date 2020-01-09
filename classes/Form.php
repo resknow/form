@@ -224,30 +224,6 @@ class Form {
             $this->errors['message-not-sent'] = ( $this->config['environment'] == 'dev' ? $message->ErrorInfo : 'Unable to send message e-mail.' );
         }
 
-        if ( isset($this->form['autoresponder']) && $this->form['autoresponder'] != false ) {
-
-            // Build E-mail Autoresponder
-            $autoresponder = new PHPMailer();
-            $autoresponder->setFrom( apply_filters('form.sendFrom', $this->config['email']) );
-            $autoresponder->addAddress($input['email']);
-            $autoresponder->isHTML(true);
-            $autoresponder->Subject = ( isset($this->form['subject_autoresponder']) ? $this->form['subject_autoresponder'] : 'Thank you' );
-            $autoresponder->Body = $theme->render('autoresponder.php', get(), false);
-
-            // SMTP setup
-            if ( array_key_exists('smtp', $this->form) ) {
-                $this->smtp( $autoresponder );
-            }
-
-            // Try to send autoresponder message
-            try {
-                $autoresponder->send();
-            } catch( Exception $e ) {
-                $this->errors['autoresponder-not-sent'] = ( $this->config['environment'] == 'dev' ? $autoresponder->ErrorInfo : 'Unable to send message e-mail.' );
-            }
-
-        }
-
     }
 
     /**
