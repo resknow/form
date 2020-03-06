@@ -10,5 +10,5 @@ $_html['classes'] = ( isset($variables['classes']) ? array_merge($_classes, expl
 ?>
 
 <div class="field field-name-submit">
-    <button<?php if ( get('site.recaptcha') ): ?> disabled<?php endif; ?> type="submit" class="<?= join(' ', $_html['classes']); ?>"><?= $_html['text'] ?></button>
+    <button type="submit" class="<?= join(' ', $_html['classes']); ?>"><?= $_html['text'] ?></button>
 </div>

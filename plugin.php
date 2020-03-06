@@ -6,7 +6,7 @@ use Form\Plugin;
 
 /**
  * @subpackage Form
- * @version 2.4.0
+ * @version 2.5.0
  * @package Boilerplate (4.0.0 or higher)
  * @author Chris Galbraith
  */

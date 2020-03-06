@@ -2,15 +2,15 @@
 
 // Field Setup
 $_attr['name'] = $variables['name'];
-$_attr['value'] = ( isset($variables['value']) ? $variables['value'] : false );
+$_attr['value'] = ( isset($variables['value']) ? $variables['value'] : null );
 
 // Additional Attributes
-$_attr['disabled'] = ( isset($variables['disabled']) ? $variables['disabled'] : false );
-$_attr['readonly'] = ( isset($variables['readonly']) ? $variables['readonly'] : false );
+$_attr['disabled'] = ( isset($variables['disabled']) ? $variables['disabled'] : null );
+$_attr['readonly'] = ( isset($variables['readonly']) ? $variables['readonly'] : null );
 
 // HTML Setup
-$_html['label'] = ( isset($variables['label']) ? $variables['label'] : false );
-$_html['description'] = ( isset($variables['description']) ? $variables['description'] : false );
+$_html['label'] = ( isset($variables['label']) ? $variables['label'] : null );
+$_html['description'] = ( isset($variables['description']) ? $variables['description'] : null );
 $_html['show_label'] = ( isset($variables['show_label']) ? $variables['show_label'] : true );
 
 // Classes to add to each button
@@ -24,7 +24,7 @@ $_html['classes'] = ( isset($variables['classes']) ? array_merge($_classes, expl
         <label for="<?= $_attr['name'] ?>"><?= $_html['label']; if ( !$variables['is-required'] ): ?> <span class="field-marker">Optional</span><?php endif; ?></label>
     <?php endif; ?>
 
-    <select class="<?= join('', $_html['classes']) ?>" <?php foreach ( $_attr as $key => $val ): if ( !$val ) continue; printf(' %s="%s"', $key, $val); endforeach; ?>>
+    <select class="<?= join('', $_html['classes']) ?>" <?= render_attributes($_attr) ?>>
         <?php foreach ( $variables['options'] as $value => $label ): ?>
         <option value="<?= $value ?>"><?= $label ?></option>
         <?php endforeach; ?>

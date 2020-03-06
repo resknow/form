@@ -5,21 +5,21 @@ $_attr['name'] = $variables['name'];
 $_attr['type'] = $variables['type'];
 
 // Classes to add to each button
-$_classes = array('field-group');
+$_classes = array('field field-group');
 $_classes[] = ( isset($variables['grid']) && $variables['grid'] === false ? 'field-group--no-grid' : '' );
 $_classes = ( isset($variables['classes']) ? array_merge($_classes, explode(' ', $variables['classes'])) : $_classes );
 $_attr['classes'] = join( ' ', $_classes );
 
 // HTML Setup
-$_html['label'] = ( isset($variables['label']) ? $variables['label'] : false );
-$_html['description'] = ( isset($variables['description']) ? $variables['description'] : false );
+$_html['label'] = ( isset($variables['label']) ? $variables['label'] : null );
+$_html['description'] = ( isset($variables['description']) ? $variables['description'] : null );
 $_html['show_label'] = ( isset($variables['show_label']) ? $variables['show_label'] : true );
 
 // Field count
 $field_count = count($variables['fields']);
 
 // Is this a conditional group?
-$condition = ( isset($variables['condition']) ? $variables['condition'] : false );
+$condition = ( isset($variables['condition']) ? $variables['condition'] : null );
 $condition_json = json_encode($condition, JSON_PRETTY_PRINT);
 
 ?>

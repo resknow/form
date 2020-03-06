@@ -388,4 +388,13 @@ class Form {
         $this->processors[] = $callback;
     }
 
+    /**
+     * Get ID
+     * 
+     * @return string Current Form ID
+     */
+    public function get_id() {
+        return $this->id;
+    }
+
 }

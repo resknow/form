@@ -235,11 +235,11 @@ function render_add_custom_assets( $field, $ext ) {
 
     // Datepicker
     if ( $type === 'datepicker' ) {
-        $bundle = new Bundler( '/_plugins/form/assets/bundles/form.datepicker.js' );
+        $bundle = new Bundler( '/form/datepicker-bundle' );
         $bundle->addFile( 'pikaday', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/pikaday.min.js' );
         $bundle->addFile( 'datepicker', sprintf( '_plugins/form/assets/js/form.datepicker%sjs', $ext ) );
         add_stylesheet( 'form-pikaday-css', 'https://cdnjs.cloudflare.com/ajax/libs/pikaday/1.8.0/css/pikaday.min.css' );
-        add_script( 'form-datepicker-js', '/_plugins/form/assets/bundles/form.datepicker.js' );
+        add_script( 'form-datepicker-js', '/form/datepicker-bundle' );
     }
 
     // Choices
@@ -295,3 +295,18 @@ add_action( 'twig.init', function( $twig ) {
     $twig->addFunction( new Twig\TwigFunction('render_form', 'render_form', $options) );
     $twig->addFunction( new Twig\TwigFunction('render_field', 'render_field', $options) );
 } );
+
+/**
+ * Render Attributes
+ * 
+ * @param array $attributes
+ */
+function render_attributes( $attributes = [] ) {
+
+    foreach ( $attributes as $key => $val ) {
+        if ( is_null($val) ) continue;
+        $html[] = sprintf(' %s="%s"', $key, $val);
+    }
+
+    return join(' ', $html);
+}

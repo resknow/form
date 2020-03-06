@@ -3,23 +3,28 @@
 // Field Setup
 $_attr['name'] = $variables['name'];
 $_attr['type'] = $variables['type'];
-$_attr['value'] = ( isset($variables['value']) ? $variables['value'] : false );
-$_attr['placeholder'] = ( isset($variables['placeholder']) ? $variables['placeholder'] : false );
+$_attr['value'] = ( isset($variables['value']) ? $variables['value'] : null );
+$_attr['placeholder'] = ( isset($variables['placeholder']) ? $variables['placeholder'] : null );
+
+// Datalist
+$_datalist = ( isset($variables['datalist']) && $variables['datalist'] === true ? true : false );
+if ( $_datalist ) $_attr['list'] = sprintf('%s-datalist', $variables['name']);
 
 // Additional Attributes
-$_attr['autocomplete'] = ( isset($variables['autocomplete']) ? $variables['autocomplete'] : false );
-$_attr['autofocus'] = ( isset($variables['autofocus']) ? $variables['autofocus'] : false );
-$_attr['min'] = ( isset($variables['min']) ? $variables['min'] : false );
-$_attr['max'] = ( isset($variables['max']) ? $variables['max'] : false );
-$_attr['pattern'] = ( isset($variables['pattern']) ? $variables['pattern'] : false );
-$_attr['step'] = ( isset($variables['step']) ? $variables['step'] : false );
-$_attr['maxlength'] = ( isset($variables['maxlength']) ? $variables['maxlength'] : false );
-$_attr['readonly'] = ( isset($variables['readonly']) ? $variables['readonly'] : false );
-$_attr['disabled'] = ( isset($variables['disabled']) ? $variables['disabled'] : false );
+$_attr['autocomplete'] = ( isset($variables['autocomplete']) ? $variables['autocomplete'] : null );
+$_attr['autofocus'] = ( isset($variables['autofocus']) ? $variables['autofocus'] : null );
+$_attr['min'] = ( isset($variables['min']) ? $variables['min'] : null );
+$_attr['max'] = ( isset($variables['max']) ? $variables['max'] : null );
+$_attr['inputmode'] = ( isset($variables['inputmode']) ? $variables['inputmode'] : null );
+$_attr['pattern'] = ( isset($variables['pattern']) ? $variables['pattern'] : null );
+$_attr['step'] = ( isset($variables['step']) ? $variables['step'] : null );
+$_attr['maxlength'] = ( isset($variables['maxlength']) ? $variables['maxlength'] : null );
+$_attr['readonly'] = ( isset($variables['readonly']) ? $variables['readonly'] : null );
+$_attr['disabled'] = ( isset($variables['disabled']) ? $variables['disabled'] : null );
 
 // HTML Setup
-$_html['label'] = ( isset($variables['label']) ? $variables['label'] : false );
-$_html['description'] = ( isset($variables['description']) ? $variables['description'] : false );
+$_html['label'] = ( isset($variables['label']) ? $variables['label'] : null );
+$_html['description'] = ( isset($variables['description']) ? $variables['description'] : null );
 $_html['show_label'] = ( isset($variables['show_label']) ? $variables['show_label'] : true );
 
 // Classes to add to each button
@@ -34,7 +39,15 @@ $_attr['class'] = join( ' ', $_classes );
         <label for="<?= $_attr['name'] ?>"><?= $_html['label']; if ( !$variables['is-required'] ): ?> <span class="field-marker">Optional</span><?php endif; ?></label>
     <?php endif; ?>
 
-    <input<?php foreach ( $_attr as $key => $val ): if ( !$val ) continue; printf(' %s="%s"', $key, $val); endforeach; ?>>
+    <input <?= render_attributes($_attr) ?>>
+
+    <?php if ( $_datalist ): ?>
+    <datalist id="<?= $_attr['list'] ?>">
+        <?php foreach ( $variables['options'] as $value => $label ): ?>
+        <option value="<?= $value ?>"><?= $label ?></option>
+        <?php endforeach; ?>
+    </datalist>
+    <?php endif; ?>
 
     <?php if ( $_html['description'] ): ?>
     <p class="field-description"><?= $_html['description'] ?></p>

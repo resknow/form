@@ -2,7 +2,8 @@
 
 // Field Setup
 $_attr['name'] = $variables['name'];
-$_attr['type'] = 'hidden';
+$_attr['type'] = $variables['type'];
+$_attr['value'] = ( isset($variables['value']) ? $variables['value'] : null );
 $_attr['placeholder'] = ( isset($variables['placeholder']) ? $variables['placeholder'] : null );
 
 // Additional Attributes
@@ -20,22 +21,19 @@ $_attr['disabled'] = ( isset($variables['disabled']) ? $variables['disabled'] : 
 $_html['label'] = ( isset($variables['label']) ? $variables['label'] : null );
 $_html['description'] = ( isset($variables['description']) ? $variables['description'] : null );
 $_html['show_label'] = ( isset($variables['show_label']) ? $variables['show_label'] : true );
-$_html['value'] = ( isset($variables['value']) ? $variables['value'] : null );
 
-// Classes
-$_classes = array('field-textarea');
+// Classes to add to each button
+$_classes = array('field-input');
 $_classes = ( isset($variables['classes']) ? array_merge($_classes, explode(' ', $variables['classes'])) : $_classes );
-$_html['classes'] = join( ' ', $_classes );
+$_attr['class'] = join( ' ', $_classes );
 
 ?>
 <div class="field field-type-<?= $_attr['type'] ?> field-name-<?= $_attr['name'] ?>">
 
-    <?php if ( $_html['show_label'] && $_html['label'] ): ?>
-        <label for="<?= $_attr['name'] ?>"><?= $_html['label']; if ( !$variables['is-required'] ): ?> <span class="field-marker">Optional</span><?php endif; ?></label>
-    <?php endif; ?>
-
-    <trix-editor input="wysiwyg-<?= $_attr['name'] ?>"></trix-editor>
-    <input id="wysiwyg-<?= $_attr['name'] ?>" class="<?= $_html['classes'] ?>" <?php foreach ( $_attr as $key => $val ): if ( !$val ) continue; printf(' %s="%s"', $key, $val); endforeach; ?>>
+    <label for="<?= $_attr['name'] ?>">
+        <?= $_html['label']; if ( !$variables['is-required'] ): ?> <span class="field-marker">Optional</span><?php endif; ?>
+        <input <?= render_attributes($_attr) ?>>
+    </label>
 
     <?php if ( $_html['description'] ): ?>
     <p class="field-description"><?= $_html['description'] ?></p>
