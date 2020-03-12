@@ -3,8 +3,9 @@
     var submitButtons = document.querySelectorAll(
         '[data-form] button[type="submit"]'
     );
+
     submitButtons.forEach(function(button) {
-        button.setAttribute('disabled');
+        button.setAttribute('disabled', true);
     });
 
     grecaptcha.ready(function() {
